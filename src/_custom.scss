@@ -1,0 +1,11 @@
+// _custom.scss
+// here I am overriting the default BS colours so that it dosen't look like bootstrapy
+$primary: #4f8b99; // Softened Deep Teal
+$secondary: #4fc2c4; // Softened Turquoise
+$success: #66af9e; // Softened Sage Green
+$info: #f2e9b7; // Softer Light Beige
+$warning: #f7ca55; // Softer Golden Yellow
+$danger: #d5434d; // Softer Crimson Red
+$light: #f5f7fa; // Softened Off-White
+$dark: #465477; // Softened Slate Blue
+@import "bootstrap/scss/bootstrap";

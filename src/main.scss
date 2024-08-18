@@ -1,0 +1,164 @@
+// this is my scss file where I am using Sass features, I could have created different files to have mixins and other function
+// but as it is very small I am doing it here but with a Clean code
+
+@import "custom";
+@import "bootstrap/scss/bootstrap";
+
+// Color Variables which are reusable
+$nav-link-hover-bg: rgba(211, 211, 211, 0.5);
+$sidebar-shadow: rgb(0 0 0 / 22%) 0px 25.6px 57.6px 0px,
+  rgb(0 0 0 / 18%) 0px 4.8px 14.4px 0px;
+$active-menu-bg: #dde0db;
+$Custom-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25); // Mixin for box-shadow
+$dark: #343a40;
+
+// Mixin for box shadow
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+// Mixin for transition
+@mixin transition($time) {
+  transition: all $time;
+}
+
+// Sidebar Styles
+@mixin sidebar-style($width) {
+  height: 100%;
+  width: $width;
+  position: fixed;
+  overflow-x: hidden;
+  z-index: 10;
+  @include box-shadow($sidebar-shadow);
+  @include transition(0.4s);
+
+  div {
+    .nav-link {
+      &:hover {
+        background-color: $nav-link-hover-bg;
+      }
+    }
+  }
+
+  i {
+    position: relative;
+    top: 2px;
+  }
+}
+// Sidebar Styles
+.sidebar {
+  @include sidebar-style(220px);
+}
+
+// Shrinked Sidebar Styles
+.sidebar_shrink {
+  @include sidebar-style(54px);
+
+  div {
+    .nav-link {
+      &:hover {
+        background-color: $nav-link-hover-bg;
+        color: #343a40 !important;
+      }
+    }
+  }
+
+  i {
+    position: relative;
+    top: 2px;
+  }
+}
+
+// Navbar Styles
+
+.navBar,
+.navBar_not_shrink {
+  overflow: none !important;
+  z-index: 1;
+}
+.navBar {
+  margin-left: 20px;
+}
+
+.navBar_not_shrink {
+  margin-left: 54px;
+}
+// Main Content Styles
+.main {
+  margin-left: 240px;
+  padding: 64px 20px 18px 0;
+  @include transition(0.4s);
+}
+
+.main_not_shrink {
+  margin-left: 70px;
+  padding: 64px 20px 18px 0;
+  @include transition(0.4s);
+}
+
+// Toggle Button Styles
+.toggleBtnOnToggle,
+.toggleBtnoffToggle {
+  position: fixed;
+  bottom: 2rem;
+  cursor: pointer;
+  @include transition(0.4s);
+  z-index: 10;
+}
+
+.toggleBtnOnToggle {
+  left: 6rem;
+}
+.toggleBtnoffToggle {
+  left: 0.7rem;
+}
+
+// Search Container Styles
+.search_container,
+.search_container_toggle {
+  @include transition(0.4s);
+}
+
+.search_container {
+  width: 24.5rem;
+  margin-left: 220px;
+}
+
+.search_container_toggle {
+  width: 27.8rem;
+  margin-left: 18px;
+}
+// Table Responsive Styles
+.table-responsive {
+  height: 40rem;
+}
+
+// Active Menu Styles
+.activeMenu {
+  background-color: $active-menu-bg !important;
+}
+
+// Label Styles
+label {
+  padding: 4px 0;
+}
+
+// Icon Styles
+i {
+  cursor: pointer;
+}
+
+// Could have created a different file for form element style but here I only limeted so puting it here with comment
+
+input[type="search"] {
+  border: 1px solid $dark;
+}
+::placeholder {
+  color: $dark; // Replace with your desired color
+  font-weight: 600;
+}
+
+// over riding the default styling of bootstrap
+.shadow-lg {
+  box-shadow: $Custom-box-shadow !important;
+}
